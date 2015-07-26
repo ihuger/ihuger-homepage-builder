@@ -1,0 +1,221 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>ihuger's blog</title>
+		<meta name="description" content="">
+		<meta name="author" content="ihuger">
+
+		<link rel="stylesheet" href="../theme/css/foundation.css" />
+		<link rel="stylesheet" href="../theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="../theme/css/custom.css" />
+
+
+		<script src="../theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">ihuger's&nbsp;blog</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="..">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="../category/python.html">Python</a></li>
+							<li class="active"><a href="../category/tools.html">tools</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="http://getpelican.com/">Pelican</a></li>
+							<li><a href="http://python.org/">Python.org</a></li>
+							<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+							<li><a href="#">You can modify those links in your config file</a></li>
+
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2015/04/index.html">April 2015 (1)</a></li>
+
+						<li><label>Social</label></li>
+							<li><a href="#">Another social link</a></li>
+							<li><a href="#">You can add links in your config file</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="../">ihuger's blog</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="../category/python.html">Python</a></li>
+								<li class="active"><a href="../category/tools.html">tools</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Category: tools</h2>
+								</div>
+							</div>
+
+<article>
+	<h3><a href="../markdown-renew.html">markdown renew</a></h3>
+	<h6>Written by <a href="../author/ihuger.html">ihuger</a> in <a href="../category/tools.html">tools</a> on Sun 26 April 2015. Tags: <a href="../tag/markdown.html">markdown</a>, </h6>
+	<h3>标题</h3>
+<p>#{n}  多少个#就代表第几层标题，如 </p>
+<div class="highlight"><pre>    #### H4 四级标题
+</pre></div>
+
+
+<h3>列表</h3>
+<p>使用 "-/./+" 来表示无序列表</p>
+<p>使用 "num." 来表示有序列表</p>
+<ol>
+<li>
+<p>如果单个列表项跨多个段，需要空行之后、递进4个空格符</p>
+<div class="highlight"><pre>1. list1, 第一段
+
+    第二段
+2. list2
+</pre></div>
+
+
+<ol>
+<li>
+<p>如果需要在列表中添加块，同样需要递进4个空格符</p>
+<ol>
+<li>
+<p>list1</p>
+<blockquote>
+<p>b1</p>
+<p>b2
+        2. list2</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>如果需要在列表中添加代码块，需要递进8个字符</p>
+<div class="highlight"><pre>* list1
+
+        echo &#39;shell script&#39;|wc -c
+* list2
+</pre></div>
+
+
+</li>
+</ol>
+<h3>块</h3>
+<p>使用 "&gt;" 来表示block，如下：(注意需要 '&gt;'开始的空行过渡)</p>
+<div class="highlight"><pre>    &gt; level 1 block
+    &gt;
+    &gt; &gt; level 2 block ...</pre></div>
+		<p class="continue"><a href="../markdown-renew.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="http://getpelican.com/">Pelican</a></li>
+									<li><a href="http://python.org/">Python.org</a></li>
+									<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+									<li><a href="#">You can modify those links in your config file</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2015/04/index.html">April 2015 (1)</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="#">Another social link</a></li>
+									<li><a href="#">You can add links in your config file</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="../theme/js/jquery.js"></script>
+		<script src="../theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>

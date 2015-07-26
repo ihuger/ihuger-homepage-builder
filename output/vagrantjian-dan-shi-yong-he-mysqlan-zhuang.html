@@ -1,0 +1,223 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>ihuger's blog</title>
+		<meta name="description" content="">
+		<meta name="author" content="ihuger">
+
+		<link rel="stylesheet" href="./theme/css/foundation.css" />
+		<link rel="stylesheet" href="./theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="./theme/css/custom.css" />
+
+
+		<script src="./theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">ihuger's&nbsp;blog</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href=".">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="./category/bigdata.html">bigdata</a></li>
+							<li ><a href="./category/python.html">Python</a></li>
+							<li class="active"><a href="./category/tools.html">tools</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="http://getpelican.com/">Pelican</a></li>
+							<li><a href="http://python.org/">Python.org</a></li>
+							<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+							<li><a href="#">You can modify those links in your config file</a></li>
+
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2015/05/index.html">May 2015 (4)</a></li>
+									<li><a href="/posts/2015/04/index.html">April 2015 (3)</a></li>
+									<li><a href="/posts/2010/12/index.html">December 2010 (1)</a></li>
+
+						<li><label>Social</label></li>
+							<li><a href="#">Another social link</a></li>
+							<li><a href="#">You can add links in your config file</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="./">ihuger's blog</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="./category/bigdata.html">bigdata</a></li>
+								<li ><a href="./category/python.html">Python</a></li>
+								<li class="active"><a href="./category/tools.html">tools</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>"vagrant简单使用和mysql安装"</h2>
+	<p>{% include JB/setup %}</p>
+<h3>vagrant 基本命令</h3>
+<p>参考<a href="http://docs.vagrantup.com/v2/getting-started/index.html">vagrant_get_start_page</a></p>
+<ul>
+<li>box list:         vagrant box list</li>
+<li>通过名称add box:  vagrant box add ubuntu/trusty64</li>
+<li>添加本地box:      vagrant box add chef/centos-6.5 ~/Downloads/virtualbox.box (通过其他方式下载的）</li>
+<li>初始化虚拟机:     vagrant init ubuntu/trusty64 （会在当前目录下生成Vagrantfile)</li>
+<li>启动:             vagrant  up</li>
+<li>登陆:             vagrant ssh</li>
+</ul>
+<h3>vagrant 安装mysql</h3>
+<h4>1. install mysql</h4>
+<ul>
+<li>
+<p>修改Vagrantfile，添加 </p>
+<p>config.vm.provision :shell, path: "bootstrap.sh"
+- 对centos，bootstrap.sh文件如下(参考 <a href="http://dev.mysql.com/doc/mysql-repo-excerpt/5.6/en/linux-installation-yum-repo.html">mysql_install_page</a>) </p>
+<p>#/usr/bin/env sh
+  wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm -O /tmp/mysql-community-release-el6-5.noarch.rpm
+  sudo yum -y localinstall /tmp/mysql-community-release-el6-5.noarch.rpm
+  yum repolist enabled | grep "mysql.<em>-community.</em>"
+  sudo yum -y install mysql-community-server
+  sudo service mysqld start
+  sudo service mysqld status
+  #mysql_secure_installation (需要登陆进去后，通过该命令添加root用户，并修改密码)
+  #auto start
+  sudo /sbin/chkconfig --add mysqld
+  sudo /sbin/chkconfig mysqld on
+  #sudo /sbin/chkconfig --list mysqld
+  #to stop
+  #sudo /sbin/chkconfig mysqld off
+- 对ubuntu, bootstrap.sh文件如下：</p>
+<p>sudo debconf-set-selections &lt;&lt;&lt; 'mysql-server-5.6 mysql-server/root_password password rootpass'
+  sudo debconf-set-selections &lt;&lt;&lt; 'mysql-server-5.6 mysql-server/root_password_again password rootpass'
+  sudo apt-get update
+  sudo apt-get -y install mysql-server-5.6</p>
+</li>
+</ul>
+<h4>2. 在host上访问guest mysql：</h4>
+<ul>
+<li>
+<p>查看guest上mysql运行的端口：</p>
+<p>mysql&gt; SHOW VARIABLES WHERE Variable_name = 'port’;
+- 设置端口转发： 将host的4567端口绑定到guest的3306端口(如上）, 修改Vagrantfile 添加:</p>
+<p>config.vm.network "forwarded_port", guest: 3306, host: 4567
+- <a href="https://dev.mysql.com/doc/refman/5.1/en/create-user.html">创建用户</a>：create user 'host'@'%' identified by 'hostpass’;
+- 查看用户：select user,host from mysql.user;
+- <a href="https://dev.mysql.com/doc/refman/5.0/en/grant.html">添加访问权限</a>：  grant all privileges on dcdn_stat.* to 'host'@'%' with grant option;
+- <a href="https://dev.mysql.com/doc/refman/5.0/en/show-grants.html">查看权限</a>：show grants for host
+- 在guest上访问测试：mysql -uhost -phostpass -h10.0.2.15</p>
+<p>sudo /sbin/chkconfig mysqld on</p>
+</li>
+</ul>
+	<hr/>
+	<h6>Written by <a href="./author/ihuger.html">ihuger</a> in <a href="./category/tools.html">tools</a> on Wed 13 May 2015. Tags: <a href="./tag/vagrant.html">[vagrant</a>, <a href="./tag/mysql.html">mysql]</a>, </h6>
+</article>
+
+<hr/>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="http://getpelican.com/">Pelican</a></li>
+									<li><a href="http://python.org/">Python.org</a></li>
+									<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+									<li><a href="#">You can modify those links in your config file</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2015/05/index.html">May 2015 (4)</a></li>
+											<li><a href="/posts/2015/04/index.html">April 2015 (3)</a></li>
+											<li><a href="/posts/2010/12/index.html">December 2010 (1)</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="#">Another social link</a></li>
+									<li><a href="#">You can add links in your config file</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="./theme/js/jquery.js"></script>
+		<script src="./theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>

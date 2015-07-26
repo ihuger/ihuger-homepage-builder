@@ -1,0 +1,315 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>ihuger's blog</title>
+		<meta name="description" content="">
+		<meta name="author" content="ihuger">
+
+		<link rel="stylesheet" href="./theme/css/foundation.css" />
+		<link rel="stylesheet" href="./theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="./theme/css/custom.css" />
+
+
+		<script src="./theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">ihuger's&nbsp;blog</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href=".">Home</a></li>
+						<li><label>Categories</label></li>
+							<li ><a href="./category/python.html">Python</a></li>
+							<li class="active"><a href="./category/tools.html">tools</a></li>
+
+						<li><label>Links</label></li>
+							<li><a href="http://getpelican.com/">Pelican</a></li>
+							<li><a href="http://python.org/">Python.org</a></li>
+							<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+							<li><a href="#">You can modify those links in your config file</a></li>
+
+
+						<li><label>Monthly Archives</label></li>
+									<li><a href="/posts/2015/04/index.html">April 2015 (1)</a></li>
+									<li><a href="/posts/2010/12/index.html">December 2010 (1)</a></li>
+
+						<li><label>Social</label></li>
+							<li><a href="#">Another social link</a></li>
+							<li><a href="#">You can add links in your config file</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="./">ihuger's blog</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li ><a href="./category/python.html">Python</a></li>
+								<li class="active"><a href="./category/tools.html">tools</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>markdown renew</h2>
+	<h3>标题</h3>
+<p>#{n}  多少个#就代表第几层标题，如 </p>
+<div class="highlight"><pre>    #### H4 四级标题
+</pre></div>
+
+
+<h3>列表</h3>
+<p>使用 "-/./+" 来表示无序列表</p>
+<p>使用 "num." 来表示有序列表</p>
+<ol>
+<li>
+<p>如果单个列表项跨多个段，需要空行之后、递进4个空格符</p>
+<div class="highlight"><pre>1. list1, 第一段
+
+    第二段
+2. list2
+</pre></div>
+
+
+<ol>
+<li>
+<p>如果需要在列表中添加块，同样需要递进4个空格符</p>
+<ol>
+<li>
+<p>list1</p>
+<blockquote>
+<p>b1</p>
+<p>b2
+        2. list2</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>如果需要在列表中添加代码块，需要递进8个字符</p>
+<div class="highlight"><pre>* list1
+
+        echo &#39;shell script&#39;|wc -c
+* list2
+</pre></div>
+
+
+</li>
+</ol>
+<h3>块</h3>
+<p>使用 "&gt;" 来表示block，如下：(注意需要 '&gt;'开始的空行过渡)</p>
+<div class="highlight"><pre>    &gt; level 1 block
+    &gt;
+    &gt; &gt; level 2 block
+    &gt;
+    &gt; - 支持block内的markdown
+    &gt; - list2
+</pre></div>
+
+
+<h3>程序块</h3>
+<ol>
+<li>
+<p>使用 ` , (这种markdown解析对```支持不是很好, <a href="">github-flavored-markdown</a>中支持```的表示方式)</p>
+<p><code>echo "test for code "</code></p>
+</li>
+<li>
+<p>使用递进（对齐）来表示</p>
+</li>
+</ol>
+<h3>链接</h3>
+<ol>
+<li>
+<p>普通的表示方式，括号内可以使用相对当前网址的相对位置来表示</p>
+<div class="highlight"><pre><span class="n">This</span> <span class="n">is</span> <span class="p">[</span><span class="n">an</span> <span class="n">example</span><span class="p">](</span><span class="nl">http</span><span class="p">:</span><span class="c1">//www.baidu.com/ &quot;Title&quot;) inline link.</span>
+
+<span class="p">[</span><span class="n">This</span> <span class="n">link</span><span class="p">](</span><span class="o">/</span><span class="n">about</span><span class="p">.</span><span class="n">html</span><span class="p">)</span> <span class="n">has</span> <span class="n">no</span> <span class="n">title</span> <span class="n">attribute</span><span class="p">.</span>
+</pre></div>
+
+
+<p>将会生成</p>
+<p>This is <a href="http://www.baidu.com/" title="Title">an example</a> inline link.</p>
+<p><a href="/about.html">This link</a> has no title attribute.</p>
+</li>
+<li>
+<p>通过id的方式来表示</p>
+<div class="highlight"><pre>id1连接表示[id1][id_link_1]
+
+id2（相对路径）表示[id2][id_link_2]
+
+空标记 [GOOGLE][]
+
+[id_link_1]: /about.html &quot;title: link by id&quot;
+[id_link_2]: http://lake59.github.io &#39;title: link by id&#39;
+[GOOGLE]: https://www.google.com
+</pre></div>
+
+
+<p>将会生成：</p>
+<p>id1连接表示[id1][id_link_1] </p>
+<p>id2（相对路径）表示[id2][id_link_2] </p>
+<p>空标记 [GOOGLE][]</p>
+<p>[id_link_1]: /about.html "title: link by id"
+[id_link_2]: http://lake59.github.io 'title: link by id'
+[GOOGLE]: https://www.google.com </p>
+</li>
+<li>
+<p>image的表示，与链接表示很像，需在方括号前加上 !，如</p>
+<div class="highlight"><pre>![image]({filename}/images/github.png)
+</pre></div>
+
+
+<p>将会产生：</p>
+<p><img alt="image" src="./images/github.png" /></p>
+</li>
+</ol>
+<h3>强调</h3>
+<p>使用 * 或 _ 来表示</p>
+<ul>
+<li>一个 * 或 _ 表示*斜体*:  <em>斜体</em></li>
+<li>两个 * 或 _ 表示**粗体**:  <strong>粗体</strong></li>
+<li><a href="">github-flavored-markdown</a>语法中，删除线用两个波浪线表示,如 ~~Mistaken text.~~</li>
+</ul>
+<h3>表</h3>
+<p>table的表示在做一些展示的时候经常用到, markdown中使用 | - : 这三个符号来构成表，| 用于分割列，: 用于表示对齐方式, - 用于分割表头和数据， 如</p>
+<div class="highlight"><pre><span class="p">|</span><span class="s-Atom">col1</span><span class="p">|</span><span class="s-Atom">col2</span><span class="p">|</span><span class="s-Atom">col3</span>
+<span class="p">|:-|</span><span class="s-Atom">-</span><span class="p">|</span><span class="o">-</span>
+<span class="p">|</span><span class="s-Atom">val1</span><span class="p">|</span><span class="s-Atom">val2</span><span class="p">|</span><span class="s-Atom">val3</span>
+</pre></div>
+
+
+<p>将会生成：</p>
+<table>
+<thead>
+<tr>
+<th align="left">col1</th>
+<th>col2</th>
+<th>col3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">val1</td>
+<td>val2</td>
+<td>val3</td>
+</tr>
+</tbody>
+</table>
+<h4>refer：</h4>
+<ul>
+<li><a href="https://help.github.com/articles/github-flavored-markdown/">github-flavored-markdown</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">daringfireball markdwon</a></li>
+</ul>
+	<hr/>
+	<h6>Written by <a href="./author/ihuger.html">ihuger</a> in <a href="./category/tools.html">tools</a> on Sun 26 April 2015. Tags: <a href="./tag/markdown.html">markdown</a>, </h6>
+</article>
+
+<hr/>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									<li><a href="http://getpelican.com/">Pelican</a></li>
+									<li><a href="http://python.org/">Python.org</a></li>
+									<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+									<li><a href="#">You can modify those links in your config file</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+											<li><a href="/posts/2015/04/index.html">April 2015 (1)</a></li>
+											<li><a href="/posts/2010/12/index.html">December 2010 (1)</a></li>
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="#">Another social link</a></li>
+									<li><a href="#">You can add links in your config file</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="./theme/js/jquery.js"></script>
+		<script src="./theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>
